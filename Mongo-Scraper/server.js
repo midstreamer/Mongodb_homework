@@ -21,7 +21,7 @@ app.use(express.static("./public"));
 
 // connect to database
 mongoose.Promise = Promise;
-var dbConnect = process.env.MONGODB_URI || "mongodb://localhost/foxsScrape";
+var dbConnect = process.env.MONGODB_URI || "mongodb://localhost/";
 if(process.env.MONGODB_URI) {
     mongoose.connect(process.env.MONGODB_URI)
 } else {
