@@ -19,9 +19,9 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static("./public"));
 
-// connect to database
-var databaseUri = "mongodb://localhost/week18Populater";
-
+// // connect to database
+mongoose.Promise = Promise;
+var dbConnect = process.env.MONGODB_URI || "mongodb://localhost/week18Populater";
 if(process.env.MONGODB_URI) {
     mongoose.connect(process.env.MONGODB_URI)
 } else {
@@ -35,6 +35,9 @@ db.on('error',function(err){
 db.once('open', function(){
     console.log("Mongoose connection is successful");
 });
+
+
+
 var exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({
